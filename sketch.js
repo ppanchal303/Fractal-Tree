@@ -1,29 +1,35 @@
 let len = 150
-let angle = Math.PI / 6
+let angle
+let color
 
 function setup () {
   createCanvas(400, 400)
+  angleMode(DEGREES)
+  color = createSlider(0, 255, 255)
+  angle = createSlider(0, 180, 21)
+  len = createSlider(20, 250, 150)
 }
 
 function draw () {
   background(50)
-  stroke(255)
+  stroke(color.value())
   translate(200, 400)
-  drawLine(0, len)
+  drawLine(len.value())
 }
 
-function drawLine (i, j) {
-  let x = i
-  let y = j
+function drawLine (i) {
+  // let x = i
+  let y = i
   if (y > 2) {
     y = y * 0.67
-    line(0, 0, x, -y)
-    translate(x, -y)
+    // stroke(255)
+    line(0, 0, 0, -y)
+    translate(0, -y)
     push()
-    rotate(angle)
-    drawLine(x, y)
+    rotate(angle.value())
+    drawLine(y)
     pop()
-    rotate(-angle)
-    drawLine(x, y)
+    rotate(-angle.value())
+    drawLine(y)
   }
 }
