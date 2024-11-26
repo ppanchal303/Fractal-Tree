@@ -4,9 +4,9 @@ let color
 
 function setup () {
   createCanvas(400, 400)
-  angleMode(DEGREES)
+  // angleMode(DEGREES)
   color = createSlider(0, 255, 255)
-  angle = createSlider(0, 180, 21)
+  angle = createSlider(0, Math.PI, 0.21, 0.01)
   len = createSlider(20, 250, 150)
 }
 
